@@ -30,6 +30,7 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<BookEntity> addBook(@RequestBody BookEntity bookEntity){
+        // Добавлен hibernate sequence для автогенерации id, в связи с этим сохранение не упадёт, если id = null
         return ResponseEntity.ok(bookEntityRepository.save(bookEntity));
     }
 
